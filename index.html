@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RadioWave">
+<meta property="og:title" content="RadioWave — la radio du monde entier">
+<meta property="og:description" content="Des dizaines de milliers de stations live, en direct : en arrière-plan, dans la voiture, au réveil. Sans pub.">
+<meta property="og:url" content="https://jmarcgwada.github.io/radiowave-promo/">
+<meta property="og:image" content="https://jmarcgwada.github.io/radiowave-promo/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RadioWave — la radio du monde entier">
+<meta name="twitter:description" content="Des dizaines de milliers de stations live, en direct. Sans pub.">
+<meta name="twitter:image" content="https://jmarcgwada.github.io/radiowave-promo/og.png">
+<meta name="theme-color" content="#0B0A12">
+<title>RadioWave</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+
+<style>
+  /* ============ MOBILE-FIRST : la base cible le téléphone, les @media (min-width) élargissent ============ */
+  :root{
+    --night:#0B0A12; --night-2:#0E0C18;
+    --panel-solid:#151223;
+    --ink:#ECEAF6; --ink-dim:#A7A1C4; --ink-faint:#6C6690;
+    --violet:#8B5CF6; --violet-bright:#B4A0FF; --coral:#FF6A4D; --amber:#FFC24B;
+    --line:rgba(255,255,255,.09); --line-strong:rgba(255,255,255,.16); --glass:rgba(255,255,255,.04);
+    --shadow:0 24px 60px -28px rgba(0,0,0,.8);
+    --ff-display:"Bricolage Grotesque",system-ui,sans-serif;
+    --ff-body:"Manrope",system-ui,sans-serif;
+    --ff-mono:"Space Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;font-family:var(--ff-body);color:var(--ink);line-height:1.6;
+    background:
+      radial-gradient(900px 520px at 82% -8%, rgba(139,92,246,.22), transparent 60%),
+      radial-gradient(680px 460px at -10% 8%, rgba(255,106,77,.11), transparent 55%),
+      var(--night);
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 18px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:var(--ff-display);font-weight:700;letter-spacing:-.02em;text-wrap:balance;margin:0}
+
+  .eyebrow{font-family:var(--ff-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ink-dim);display:inline-flex;align-items:center;gap:8px;line-height:1.5}
+  .live-dot{width:8px;height:8px;border-radius:50%;background:var(--coral);flex:none;
+    box-shadow:0 0 0 0 rgba(255,106,77,.55);animation:pulse 2s infinite}
+  @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(255,106,77,0)}100%{box-shadow:0 0 0 0 rgba(255,106,77,0)}}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--ff-body);
+    font-weight:700;font-size:15px;padding:14px 22px;border-radius:999px;border:1px solid transparent;
+    cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s,border-color .2s}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:linear-gradient(135deg,var(--violet),#6d28d9);color:#fff;box-shadow:0 12px 30px -12px rgba(139,92,246,.95)}
+  .btn-ghost{border-color:var(--line-strong);color:var(--ink);background:var(--glass)}
+  .btn-ghost:active{border-color:var(--violet-bright)}
+
+  /* ---------- Nav ---------- */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+    background:linear-gradient(var(--night-2),rgba(11,10,18,.55));border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--ff-display);font-weight:800;font-size:18px;letter-spacing:-.02em}
+  .mark{width:28px;height:28px;flex:none;border-radius:8px;background:linear-gradient(150deg,var(--violet),#5b21b6);
+    display:grid;place-items:center;box-shadow:0 6px 18px -6px rgba(139,92,246,.8)}
+  .nav-links{display:flex;align-items:center;gap:22px;font-size:14px;color:var(--ink-dim)}
+  .nl{display:none}
+  .nav-cta{padding:9px 16px;font-size:14px}
+
+  /* ---------- Hero ---------- */
+  header.hero{padding:34px 0 20px}
+  .hero-grid{display:flex;flex-direction:column;gap:32px}
+  .hero h1{font-size:clamp(33px,8.6vw,44px);line-height:1.04;font-weight:800;margin:16px 0 0}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--violet-bright),var(--coral));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:16.5px;color:var(--ink-dim);margin:18px 0 0}
+  .cta-row{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+  .cta-row .btn{width:100%}
+  .cta-note{font-family:var(--ff-mono);font-size:11px;color:var(--ink-faint);margin-top:16px;letter-spacing:.03em;line-height:1.7}
+
+  /* Player mock */
+  .player{position:relative;border:1px solid var(--line-strong);border-radius:24px;padding:22px 20px;
+    background:linear-gradient(180deg,rgba(30,25,52,.78),rgba(16,13,26,.9));box-shadow:var(--shadow);overflow:hidden}
+  .player::before{content:"";position:absolute;inset:-2px;pointer-events:none;
+    background:radial-gradient(260px 110px at 70% 0%,rgba(139,92,246,.30),transparent 70%)}
+  .player-top{display:flex;justify-content:space-between;align-items:center;position:relative;
+    font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-dim)}
+  .disc{width:88px;height:88px;border-radius:50%;margin:20px auto 4px;position:relative;display:grid;place-items:center;
+    background:radial-gradient(circle at 50% 50%,#fff 0 34%,#0d0b16 35% 39%,#241d3e 40% 100%);
+    box-shadow:0 0 40px -8px rgba(139,92,246,.6)}
+  .disc svg{width:38px;height:38px;color:var(--violet)}
+  .disc.spin{animation:spin 9s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .np-live{font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.2em;color:var(--coral);
+    display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px}
+  .np-title{font-family:var(--ff-display);font-weight:700;font-size:19px;text-align:center;margin:8px 4px 2px;
+    min-height:25px;transition:opacity .4s}
+  .np-station{text-align:center;color:var(--ink-dim);font-size:13.5px;transition:opacity .4s}
+  .eq{display:flex;align-items:flex-end;justify-content:center;gap:5px;height:34px;margin:18px 0 6px}
+  .eq span{width:5px;border-radius:3px;background:linear-gradient(var(--violet-bright),var(--violet));animation:bounce 1.1s ease-in-out infinite}
+  @keyframes bounce{0%,100%{height:20%}50%{height:100%}}
+  .controls{display:flex;align-items:center;justify-content:center;gap:30px;margin-top:6px}
+  .ctl{color:var(--ink-dim)}
+  .play-b{width:54px;height:54px;border-radius:50%;background:#fff;display:grid;place-items:center;color:#141024;
+    box-shadow:0 10px 26px -8px rgba(255,255,255,.4)}
+  .play-b svg{width:22px;height:22px;margin-left:2px}
+
+  /* stats strip */
+  .strip{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
+  .stat b{font-family:var(--ff-display);font-size:26px;font-weight:800;display:block;line-height:1}
+  .stat span{font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+
+  /* ---------- Sections ---------- */
+  section{padding:52px 0}
+  .sec-head{margin-bottom:30px}
+  .sec-head .eyebrow{margin-bottom:12px}
+  .sec-head h2{font-size:clamp(26px,6.5vw,40px);line-height:1.1}
+  .sec-head p{color:var(--ink-dim);font-size:16px;margin:12px 0 0}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:14px}
+  .card{border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--glass);transition:transform .2s,border-color .2s,background .2s}
+  .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:15px;
+    background:rgba(139,92,246,.14);color:var(--violet-bright);border:1px solid rgba(139,92,246,.28)}
+  .ic svg{width:22px;height:22px}
+  .card h3{font-size:18px;margin-bottom:7px}
+  .card p{color:var(--ink-dim);font-size:14.5px;margin:0}
+
+  /* Innovations */
+  .innov{background:radial-gradient(600px 340px at 100% 0%,rgba(255,106,77,.10),transparent 60%),linear-gradient(180deg,rgba(20,16,36,.5),transparent);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .ilist{display:grid;grid-template-columns:1fr;gap:14px}
+  .irow{display:flex;gap:14px;padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--glass)}
+  .inum{font-family:var(--ff-mono);font-size:13px;color:var(--coral);flex:none;padding-top:2px}
+  .irow h3{font-size:16.5px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;line-height:1.3}
+  .tag{font-family:var(--ff-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid var(--line-strong);color:var(--ink-dim)}
+  .tag.proto{color:var(--amber);border-color:rgba(255,194,75,.4)}
+  .irow p{color:var(--ink-dim);font-size:14px;margin:6px 0 0}
+
+  /* Platforms */
+  .plats{display:flex;flex-direction:column;gap:14px}
+  .plat{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--glass);display:flex;align-items:center;gap:14px}
+  .plat svg{width:28px;height:28px;color:var(--violet-bright);flex:none}
+  .plat b{font-family:var(--ff-display);font-size:17px;display:block}
+  .plat span{font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+  /* CTA */
+  .cta-band{border:1px solid var(--line-strong);border-radius:24px;padding:42px 22px;text-align:center;
+    background:radial-gradient(460px 260px at 50% 0%,rgba(139,92,246,.28),transparent 65%),linear-gradient(180deg,rgba(28,22,50,.72),rgba(15,12,26,.85));box-shadow:var(--shadow)}
+  .cta-band h2{font-size:clamp(27px,7vw,44px);line-height:1.1}
+  .cta-band p{color:var(--ink-dim);margin:14px auto 0}
+  .share{display:flex;align-items:center;justify-content:center;gap:11px;margin-top:24px;flex-wrap:wrap}
+  .share .lbl{width:100%;font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:2px}
+  .sbtn{width:46px;height:46px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;
+    color:var(--ink-dim);background:var(--glass);transition:transform .15s,color .2s,border-color .2s}
+  .sbtn:active{color:#fff;border-color:var(--violet-bright)}
+  .sbtn svg{width:20px;height:20px}
+  #copied{width:100%;font-family:var(--ff-mono);font-size:11px;color:var(--violet-bright);opacity:0;transition:opacity .3s;margin-top:4px}
+
+  footer{padding:36px 0 48px;border-top:1px solid var(--line);margin-top:16px;color:var(--ink-faint);font-size:13px}
+  .foot-in{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+
+  /* Visible par défaut ; l'état caché n'est appliqué que si le JS ajoute .pre (sinon rien ne disparaît) */
+  .reveal{transition:opacity .6s ease,transform .6s ease}
+  .reveal.pre{opacity:0;transform:translateY(16px)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ============ ≥ 600px : grands téléphones / petites tablettes ============ */
+  @media(min-width:600px){
+    .wrap{padding:0 24px}
+    .cta-row{flex-direction:row;flex-wrap:wrap}
+    .cta-row .btn{width:auto}
+    .strip{grid-template-columns:repeat(4,1fr);gap:14px 34px}
+    .grid{grid-template-columns:1fr 1fr}
+    .ilist{grid-template-columns:1fr 1fr}
+    .plats{flex-direction:row;flex-wrap:wrap}
+    .plat{flex:1;min-width:200px}
+    .foot-in{flex-direction:row;justify-content:space-between;align-items:center}
+    .share .lbl{width:auto;margin-bottom:0}
+    #copied{width:auto;margin-top:0}
+  }
+
+  /* ============ ≥ 960px : desktop ============ */
+  @media(min-width:960px){
+    header.hero{padding:70px 0 40px}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+    .hero h1{font-size:clamp(48px,5vw,66px);margin-top:20px}
+    .lead{font-size:19px;max-width:34ch}
+    .nl{display:inline;transition:color .2s}
+    .nl:hover{color:var(--ink)}
+    .nav-in{height:66px}
+    section{padding:74px 0}
+    .grid{grid-template-columns:repeat(3,1fr);gap:18px}
+    .card:hover{transform:translateY(-4px);border-color:var(--line-strong);background:rgba(255,255,255,.06)}
+    .sbtn:hover{color:#fff;border-color:var(--violet-bright);transform:translateY(-3px)}
+    .btn-primary:hover{box-shadow:0 16px 40px -10px rgba(139,92,246,1)}
+    .cta-band{padding:56px 40px}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M7 8v8M17 8v8M3 11v2M21 11v2"/></svg>
+      </span>
+      RadioWave
+    </div>
+    <div class="nav-links">
+      <a class="nl" href="#features">Fonctions</a>
+      <a class="nl" href="#innov">Innovations</a>
+      <a class="nl" href="#plateformes">Plateformes</a>
+      <a class="btn btn-primary nav-cta" href="#ecouter">Écouter</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="live-dot"></span>En direct — des milliers de stations</span>
+      <h1>La radio du monde entier, <span class="grad">réinventée.</span></h1>
+      <p class="lead">Écoute des dizaines de milliers de stations live, où que tu sois — en arrière-plan, dans la voiture, au réveil. RadioWave transforme les ondes du monde en une expérience moderne.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#ecouter">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Écouter maintenant
+        </a>
+        <a class="btn btn-ghost" href="#features">Découvrir les fonctions</a>
+      </div>
+      <p class="cta-note">Android (bêta) · Windows · iOS bientôt — sans pub, sans compte obligatoire.</p>
+    </div>
+
+    <div class="player reveal" aria-label="Aperçu du lecteur RadioWave">
+      <div class="player-top"><span>RADIOWAVE</span><span>◉ THIS PHONE</span></div>
+      <div class="disc spin" id="disc" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 14a8 8 0 0 1 16 0"/><path d="M8.5 14a3.5 3.5 0 0 1 7 0"/><circle cx="12" cy="14" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </div>
+      <div class="np-live"><span class="live-dot"></span> LIVE STREAM</div>
+      <div class="np-title" id="npTitle">Shouse — Love Tonight</div>
+      <div class="np-station" id="npStation">Dance Wave!</div>
+      <div class="eq" aria-hidden="true" id="eq"></div>
+      <div class="controls" aria-hidden="true">
+        <span class="ctl"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg></span>
+        <span class="play-b"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="ctl"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="strip">
+      <div class="stat"><b>50 000+</b><span>Stations live</span></div>
+      <div class="stat"><b>200+</b><span>Pays</span></div>
+      <div class="stat"><b>0</b><span>Publicité</span></div>
+      <div class="stat"><b>3</b><span>Plateformes</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Ce qui la rend différente</span>
+      <h2>Pensée pour écouter la radio comme en 2026.</h2>
+      <p>Pas un simple lecteur de flux : une vraie expérience, du réveil jusqu'à la route.</p>
+    </div>
+    <div class="grid">
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div><h3>Radios du monde entier</h3><p>Des dizaines de milliers de stations live, tous pays et tous genres, mises à jour en continu.</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 12h3l3-7 4 18 3-11h5"/></svg></div><h3>Lecture en arrière-plan</h3><p>Le son continue écran éteint, avec une notification média : lecture, pause, station précédente et suivante.</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M9 18V5l10-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg></div><h3>Le titre en direct</h3><p>RadioWave lit les métadonnées du flux et affiche le morceau en cours — même sur l'écran verrouillé.</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M5 3 2 6M19 3l3 3"/></svg></div><h3>Réveil radio parlant</h3><p>Réveille-toi en musique : l'heure annoncée à voix haute, le proverbe et l'horoscope du jour — même hors connexion.</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div><h3>Minuterie de sommeil</h3><p>Endors-toi sur ta station préférée ; le son s'éteint tout seul, en fondu progressif.</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><h3>Enregistre tes émissions</h3><p>Capture une émission d'un geste et réécoute-la quand tu veux, hors ligne.</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M6 11 8 5h8l2 6M7 16h.01M17 16h.01"/></svg></div><h3>Mode voiture & casque</h3><p>Gros boutons, contrôles casque et Bluetooth voiture : pensé pour la route en toute sécurité.</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5 15.4 6.5M8.6 13.5 15.4 17.5"/></svg></div><h3>Partage en un geste</h3><p>Envoie ta station en story ou par QR code, et laisse tes amis écouter en un tap.</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><h3>Reprise au direct</h3><p>À la reprise, RadioWave se reconnecte toujours au direct — jamais d'audio en retard.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="innov" class="innov">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Sur l'établi — idées &amp; prototypes</span>
+      <h2>Là où on veut emmener la radio.</h2>
+      <p>Quelques pistes innovantes à l'étude pour les prochaines versions. Ton avis compte : dis-nous celles qui te font envie.</p>
+    </div>
+    <div class="ilist">
+      <div class="irow reveal"><div class="inum">01</div><div><h3>Rembobine le direct <span class="tag proto">Prototype</span></h3><p>Un tampon glissant pour revenir en arrière et rattraper le morceau que tu viens de rater — la radio live, avec une machine à remonter le temps.</p></div></div>
+      <div class="irow reveal"><div class="inum">02</div><div><h3>Quel est ce morceau ? <span class="tag">Idée</span></h3><p>Identification façon Shazam sur les stations sans métadonnées, avec envoi direct vers ta playlist Spotify ou YouTube.</p></div></div>
+      <div class="irow reveal"><div class="inum">03</div><div><h3>Écoute partagée <span class="tag">Idée</span></h3><p>Un salon d'écoute synchronisé : la même radio, en même temps, avec tes amis — chacun chez soi.</p></div></div>
+      <div class="irow reveal"><div class="inum">04</div><div><h3>Commande vocale <span class="tag">Idée</span></h3><p>« Joue du zouk depuis la Guadeloupe » — et RadioWave trouve et lance la station, sans lever le petit doigt.</p></div></div>
+      <div class="irow reveal"><div class="inum">05</div><div><h3>Réveil briefing <span class="tag proto">Prototype</span></h3><p>Ton réveil t'annonce l'heure, la météo du jour et ton agenda — en plus de ta station préférée.</p></div></div>
+      <div class="irow reveal"><div class="inum">06</div><div><h3>Enregistrement programmé <span class="tag">Idée</span></h3><p>Planifie l'enregistrement d'une émission à l'avance, comme un magnétoscope pour la radio.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="plateformes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Partout avec toi</span>
+      <h2>Une seule appli, tous tes écrans.</h2>
+    </div>
+    <div class="plats">
+      <div class="plat reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg><div><b>Android</b><span>Disponible en bêta</span></div></div>
+      <div class="plat reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><div><b>Windows</b><span>Application bureau</span></div></div>
+      <div class="plat reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg><div><b>iOS</b><span>Bientôt</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ecouter">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <span class="eyebrow" style="justify-content:center;display:inline-flex"><span class="live-dot"></span> Prêt à écouter le monde ?</span>
+      <h2 style="margin-top:14px">Le monde passe à la radio.<br>Rejoins l'écoute.</h2>
+      <p>Teste RadioWave dès maintenant sur Android, ou lance une station directement dans ton navigateur.</p>
+      <div class="cta-row" style="margin-top:26px">
+        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdxPzT5Cp-8KKWpyLH02q9GzYCoLIRrhKaA4HDmGWVKaXmgbA/viewform" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Rejoindre la bêta Android
+        </a>
+        <a class="btn btn-ghost" href="https://jmarcgwada.github.io/radiowave-listen/" target="_blank" rel="noopener">Écouter dans le navigateur</a>
+      </div>
+      <div class="share">
+        <span class="lbl">Partager</span>
+        <a class="sbtn" id="fb" href="#" aria-label="Partager sur Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2a1 1 0 0 1 1-1z"/></svg></a>
+        <a class="sbtn" id="wa" href="#" aria-label="Partager sur WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.2 1.1-1.7 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.9-4.5-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.6-.1 1.1z"/></svg></a>
+        <button class="sbtn" id="copy" aria-label="Copier le lien"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>
+        <span id="copied">Lien copié !</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand" style="font-size:16px">
+      <span class="mark" aria-hidden="true" style="width:24px;height:24px;border-radius:7px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v18M7 8v8M17 8v8M3 11v2M21 11v2"/></svg></span>
+      RadioWave
+    </div>
+    <div>Imaginé &amp; développé aux Antilles 🌴 — écoute le monde, en direct.</div>
+  </div>
+</footer>
+
+<script>
+  const eq=document.getElementById('eq');
+  if(eq){[70,40,90,55,100,45,80,60,95,50].forEach(v=>{const s=document.createElement('span');
+    s.style.height=v+'%';s.style.animationDelay=(-Math.random()*1.1).toFixed(2)+'s';
+    s.style.animationDuration=(0.8+Math.random()*0.7).toFixed(2)+'s';eq.appendChild(s);});}
+
+  const cuts=[
+    {t:"Shouse — Love Tonight",s:"Dance Wave!"},
+    {t:"Miles Davis — So What",s:"FIP Jazz · France"},
+    {t:"Bob Marley — Jamming",s:"Reggae Vibes · Jamaica"},
+    {t:"Kassav' — Zouk La Sé Sèl",s:"Zouk Radio · Guadeloupe"},
+    {t:"Daft Punk — One More Time",s:"Radio Paradise · USA"}
+  ];
+  const npT=document.getElementById('npTitle'),npS=document.getElementById('npStation');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(npT&&!reduce){let i=0;setInterval(()=>{i=(i+1)%cuts.length;npT.style.opacity=0;npS.style.opacity=0;
+    setTimeout(()=>{npT.textContent=cuts[i].t;npS.textContent=cuts[i].s;npT.style.opacity=1;npS.style.opacity=1;},420);},3400);}
+
+  const reveals=document.querySelectorAll('.reveal');
+  if(!reduce && 'IntersectionObserver' in window){
+    reveals.forEach((el,n)=>{el.classList.add('pre');el.style.transitionDelay=(Math.min(n,4)*40)+'ms';});
+    const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.06,rootMargin:'0px 0px -5% 0px'});
+    reveals.forEach(el=>io.observe(el));
+    // Filet de sécurité : si l'observer rate un bloc (scroll rapide), tout devient visible.
+    setTimeout(()=>document.querySelectorAll('.reveal.pre:not(.in)').forEach(e=>e.classList.add('in')),2600);
+  }
+
+  const pageUrl="https://jmarcgwada.github.io/radiowave-listen/";
+  const txt="RadioWave — toutes les radios du monde, en direct 🎧";
+  const fb=document.getElementById('fb'),wa=document.getElementById('wa'),copy=document.getElementById('copy');
+  if(fb)fb.href="https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(pageUrl);
+  if(wa)wa.href="https://wa.me/?text="+encodeURIComponent(txt+" "+pageUrl);
+  if(copy)copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(pageUrl);
+    const c=document.getElementById('copied');c.style.opacity=1;setTimeout(()=>c.style.opacity=0,1800);}catch(e){}});
+</script>
+
+</body>
+</html>
